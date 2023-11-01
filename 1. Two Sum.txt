@@ -1,0 +1,12 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        PrevMap = {}#value:index initializing the hashmap it will store the all values before all values from second item so that we will get the first one also to get the target
+
+        for i , n in enumerate(nums):
+            diff = target - n # we will get the number which we have to find the second number for target
+            if diff in PrevMap: #if we found second number
+                return (PrevMap[diff] , i)#then returen both index the first and second
+            PrevMap[n] = i #if second item not found in hashmap then put it in the hashmap  
+        return
+
+        
