@@ -1,0 +1,15 @@
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        l , r = 0, len(nums)-1 # initialize left and right pointer in the list so that we can calculate middle value to compare with target and forward accordinglt using binary search
+        
+        while l <= r: # giving a iteration with a while condition which shoukd be true becoz for loop will not work here becoz we dont have any specific range 
+            m = (l + r) // 2
+            if target == nums[m]: # if target found in middle return middle
+                return m
+            if target > nums[m]:
+                
+                l = m+1
+            else:
+                r = m-1
+        return l
+        
