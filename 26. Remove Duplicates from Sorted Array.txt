@@ -2,12 +2,13 @@
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        if not nums:
+        if not nums:    # to handle the empty list
             return 0  # Handle the case of an empty list
 
-        l = 1
-        for r in range(1, len(nums)):
-            if nums[r] != nums[r - 1]:
-                nums[l] = nums[r]
-                l += 1
+        l = 1            # here use two pointers l will update only when new element found and l will initilaze 1 becoz its sorted array 
+                         so the first element 0  index will always be unique and smallest in array so its place never going to change
+        for r in range(1, len(nums)):  # to iterate through 1st index to len of nums
+            if nums[r] != nums[r - 1]: #check if element in current r pointer which is going to iterate whole list one by one has element                                           which showed up first time or if current element is not same as previous one so that we can update                                          l pointer by 1 and place that element in the current index of l before updating 
+                nums[l] = nums[r]       # to place the current element in rth index to lth index becoz its unique not repeated
+                l += 1                  # after that update l by 1
         return l
