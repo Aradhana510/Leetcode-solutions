@@ -1,0 +1,15 @@
+#sort the array to get the duplicates together and run time decreses
+#iterate from the array one lest element in array so that in ietration it wont go out of bound
+#check is current elememnt in array is equal to the next element to it and do this process again and again
+#if found  two element same return true else return false if whole loop is ended and no same elements found in it 
+
+
+
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        nums.sort()
+        for i in range(len(nums)-1):
+            if nums[i] == nums[i + 1]:
+                return True
+        return False     
