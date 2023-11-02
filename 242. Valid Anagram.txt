@@ -14,18 +14,18 @@ class Solution:
 
             return False
 
-        counts, countT = {}, {}
+        counts, countT = {}, {} #here creating a Hashmap or dictionary we can ssay to store the character of string as a key and number of time of occurence of that character in string as value 
 
 
 
-        for i in range(len(s)):
+        for i in range(len(s)): #as it is obvious  the length of both string will be same here so we can take range to any one of them
 
-            counts[s[i]] = 1 + counts.get(s[i], 0)
+            counts[s[i]] = 1 + counts.get(s[i], 0) # here we are getting number of occurencve of character by adding one everytime whenever we sees it again but what if the character doesnt even exists for the first time so in that it will; give key error so to resolve it  we need to give a default value 0 if no key is found to count occurence .
 
             countT[t[i]] = 1 + countT.get(t[i], 0) 
 
         for c in counts:
-            if counts[c] != countT.get(c, 0):
+            if counts[c] != countT.get(c, 0): #here this condition is for checking if the character in s have same number of occurence as value  we have is not the same character number of occurence as value we have in t so that we return false but what if the the character doesnt even exists may be their is another character which is not same so we have to return defauylt 0.
 
                 return False
 
