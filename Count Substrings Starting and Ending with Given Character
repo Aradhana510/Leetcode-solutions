@@ -1,0 +1,53 @@
+You are given a string s and a character c. Return the total number of 
+substrings
+ of s that start and end with c.
+
+ 
+
+Example 1:
+
+Input: s = "abada", c = "a"
+
+Output: 6
+
+Explanation: Substrings starting and ending with "a" are: "abada", "abada", "abada", "abada", "abada", "abada".
+
+Example 2:
+
+Input: s = "zzz", c = "z"
+
+Output: 6
+
+Explanation: There are a total of 6 substrings in s and all start and end with "z".
+
+ 
+
+Constraints:
+
+1 <= s.length <= 105
+s and c consist only of lowercase English letters.
+
+SOLUTION
+
+class Solution:
+    def countSubstrings(self, s: str, c: str) -> int:
+        total = 0 
+        count = 0
+        for char in s:
+            if char == c:
+                total += count+1
+                count += 1
+        return total
+
+ALTERNATIVE SOLUTION
+
+def count_substrings(s: str, c: str) -> int:
+    # Find all positions of character c
+    positions = [i for i, char in enumerate(s) if char == c]
+    
+    # Number of positions found
+    n = len(positions)
+    
+    # Calculate the number of substrings
+    # The formula for the number of substrings is n * (n + 1) // 2
+    return (n * (n + 1)) // 2
